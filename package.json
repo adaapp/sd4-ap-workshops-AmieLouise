@@ -1,0 +1,19 @@
+{
+  "name": "sd4-ap-workshops-amielouise",
+  "version": "1.0.0",
+  "description": "workshop 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adaapp/sd4-ap-workshops-AmieLouise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adaapp/sd4-ap-workshops-AmieLouise/issues"
+  },
+  "homepage": "https://github.com/adaapp/sd4-ap-workshops-AmieLouise#readme"
+}
