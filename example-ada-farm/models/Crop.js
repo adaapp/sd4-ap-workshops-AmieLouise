@@ -2,7 +2,7 @@ class Crop {
     constructor(type, field, x, y) {
         this.type = type
         // Get the image based on the name of the field
-        this.image = loadImage('/images/'+type.toLowerCase()+'.png') // ./carrot.png
+        this.image = loadImage('./images/' + type.toLowerCase() + '.png') // ./carrot.png
         this.health = 0
         this.field = field
         this.x = x
@@ -23,14 +23,14 @@ class Crop {
 
     draw() {
         // set a width for the image based on its age
-        if (this.getAge() < this.healthySize ) {
+        if (this.getAge() < this.healthySize) {
             var width = this.width * this.getAge()
             var height = this.height * this.getAge()
         } else {
             var width = 30;
             var height = 30;
         }
- 
+
         image(
             this.image,
             this.x,

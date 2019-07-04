@@ -1,8 +1,8 @@
 class Farmer {
-    constructor(userName) {
+    constructor(userName = 'Giles') {
         this.field = null
         this.userName = userName
-        this.image = loadImage('/images/farmer.png')
+        this.image = loadImage('./images/farmer.png')
         this.x = 100
         this.y = 100
         this.width = 60
@@ -10,7 +10,7 @@ class Farmer {
     }
 
     speak(words) {
-        alert(words)
+        console.log(words)
     }
 
     setActiveField(field) {
@@ -37,7 +37,11 @@ class Farmer {
         if (keyCode == ENTER) {
             this.field.plant(this.x, this.y)
         }
+        if (keyCode == 65) {
+            this.field.releaseCow(this.x, this.y)
+        }
     }
+
 
     draw() {
         var bobAmount = Math.sin(millis() / 60) * 3

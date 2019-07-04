@@ -7,9 +7,10 @@ var activeField = null
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight)
     background('#78d361')
-    alert('Welcome to the farm')
-    var username = prompt("What's your name?")
-    farmer = new Farmer(username)
+    // alert('Welcome to the farm')
+    // var username = prompt("What's your name?")
+    farmer = new Farmer()
+
     farmer.speak('Ey oh ey oh ey oh')
 
     fields.push(
@@ -30,6 +31,7 @@ function setup() {
 }
 
 function keyPressed() {
+
     farmer.farmerKeyPressed()
 }
 
@@ -63,7 +65,7 @@ function setActiveFieldFromFarmerPosition() {
             activeField = field
             farmer.setActiveField(field)
         }
-        
-        
+
+
     }
 }
