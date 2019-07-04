@@ -37,8 +37,11 @@ class Farmer {
         if (keyCode == ENTER) {
             this.field.plant(this.x, this.y)
         }
-        if (keyCode == 65) {
+        if (keyCode == 65) {  //a
             this.field.releaseCow(this.x, this.y)
+        }
+        if (keyCode == 83) { //s
+            this.field.releaseSheep(this.x, this.y)
         }
     }
 

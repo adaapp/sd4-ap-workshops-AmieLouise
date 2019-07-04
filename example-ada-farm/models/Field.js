@@ -36,6 +36,11 @@ class Field {
         this.animals.push(new Cow(this, x, y))
     }
 
+    releaseSheep(x, y) {
+        console.log('releasing sheep')
+        this.animals.push(new Sheep(this, x, y))
+    }
+
     containsPoint(x, y) {
         var top = this.y
         var bottom = this.y + this.height
