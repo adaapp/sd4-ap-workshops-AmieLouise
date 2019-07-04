@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background: #caffee;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            font-size: 24px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button>Things around me!</button>
+</body>
+
+<script>
+    let myButton = document.querySelectorAll('button')[0]
+    myButton.addEventListener('click', () => {
+        navigator.geolocation.getCurrentPosition(position => {
+            let userLat = position.coords.latitude
+            let userLon = position.coords.longitude
+            let coords = userLat + '<br/> ' + userLon
+            document.body.innerHTML = coords
+
+            doForesquare(userLat, userLon)
+        })
+    })
+
+
+    async function doForesquare(userLat, userLon){
+
+        let clientId = 'G54M5MIO3T51PCOUAWEWZMO0HG3T2PEEY5ZXIWA0R2WNRS4S'
+        let clientSecret = 'WOAV33MX2XQMKUECOMKFZOIHUTGFVSXZQ3A3DJRZPTRB5R4K'
+        let requestString = `https://api.foursquare.com/v2/venues/explore?client_id=${clientId}&client_secret=${clientSecret}&v=20180323&limit=5&ll=${userLat},${userLon}&query=coffee`
+
+        //BELOW IS THE PROMISE VERSION OF THE ASYNC CODE AT THE BOTTOM 
+        // fetch(requestString)
+        // .then(function(response) {
+        //     console.log(response)   //response is the data returned by the previous function (in this case the fetch funciton above)
+        //     response.json().then(function (data){
+        //         console.log(data)
+        //     })
+        // })
+        // .catch(function(error) {
+        // console.log(error)
+        // });
+
+        let response = await fetch(requestString)
+        let json = await response.json()
+        console.log(json)
+        document.body.innerHTML = json.response.groups[0].items[0].venue.name
+    }
+
+</script>
+
+
+</html>
